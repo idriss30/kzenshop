@@ -1,0 +1,87 @@
+<%- include('../includes/header.ejs')   %>
+
+<section class= "section" id="user-section">
+    <div class="user-section_container">
+       <div class="user-section_form">
+            
+            <div class="user-section_login">
+                    <p>Do you have an Account ?</p>
+                    <div class="form_title">
+                        <span>
+                            LOGIN
+                        </span>
+
+                    </div>
+                    <form method="POST" action="/users/login">
+                        <div class="form_one">
+                            <input type="text" name="username" placeholder="username">
+                            <input type="password" name="password" placeholder="password">
+                        
+                        </div>
+                        <button><a>Login</a></button>
+                        
+                    </form>
+                    <p>
+                        or
+                    </p>
+
+
+            </div>
+           
+            
+            <div class="user-section_register">
+                <div class="form_title">
+                    <span>
+                        CREATE AN ACCOUNT
+                    </span>
+
+                </div>
+                <form method="POST" action="/users/register">
+                      <div class="form_input">
+                        <input type="text" name="firstName" id="firstname" placeholder="first name">
+                    
+                        <input id="lastname" name="lastname" type="text" placeholder="last name">
+        
+                        <input type="password" name="password" id="password" placeholder="password">
+                        
+                        <input type="password" name="confirmpassword" id="confirmPassword" placeholder="Confirm password">
+                        <input type="text" name="username" id="username" placeholder ="username">
+                        
+                        <input type="email" name="email" id="email" placeholder="email">
+                        <input type="text" name="address" id="address" placeholder="address">
+                            
+                        <input type="text" name="city" id="city" placeholder="city">
+                        <input type="text" name="state" id="state" placeholder= "state">
+
+                        <input type="text" name="zipcode" id="zipcode" maxlength="5" placeholder="zip code">
+
+
+                      </div>
+                    
+                    <div>
+                        <button><a>Sign Up</a></button>
+                    </div>
+                
+                    
+
+                </form>
+
+            </div>
+
+        </div>
+        <div class="user-section_image">
+            <img src="/img/dis.jpg" alt="watch-dial" name="watch-dial">
+
+        </div>
+
+    </div>
+     
+    <svg id="product_divider" data-name="divider 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 94">
+        <polygon class="cls-1" points="0 94 512 0 1024 94 0 94"/></svg>
+
+
+</section>
+
+
+
+<%- include('../includes/footer.ejs')   %>

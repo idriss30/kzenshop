@@ -1,0 +1,672 @@
+/* general rules  */
+body{
+    margin:0;
+    padding:0;
+    color:white;
+    /* font-family: 'Nunito', sans-serif; */
+    
+    background-color: #53917e;
+    font-size:1rem;
+    animation:fadeIn 1s linear;
+    letter-spacing: .2rem;
+    
+}
+
+
+
+body ul{
+    list-style :none;
+}
+
+header{
+    animation: backInDown 1s linear
+}
+
+.navigation_container a{
+    text-decoration:none;
+    color:#edf2f4;
+    font-size:1.1rem;
+}
+.navigation_container a:hover{
+    color:#ef233c
+}
+.logo{
+    z-index:1000;
+}
+.logo img{
+    max-width:10rem;
+    max-height:100%;
+}
+.navigation_container{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:space-between;
+    height:5rem;
+    font-weight:bold;
+}
+.navigation_shop, .navigation_list{
+    align-self:center;
+    z-index:1000
+}
+.navigation_list {
+    margin-right:4rem;
+}
+.navigation_list ul{
+    display:flex;
+    flex-flow: row nowrap;
+}
+.navigation_list ul li{
+    margin-left:1rem;
+    z-index:1000
+}
+
+
+
+
+/*defining the main components of the landing rules */
+.section {
+  position :relative;
+  min-height:100vh;
+  padding-bottom:7rem;
+  padding-top: 5rem;
+}
+.section img{
+    transition:transform 1s linear
+}
+.second_main_image img:hover{
+    transform:scale(1.1)
+}
+
+
+
+
+.landing_section_container{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content: space-between;
+    min-height:80%;
+   
+}
+
+.landing_image{
+   
+   flex-basis:40%;
+   
+}
+
+.landing_image img, .landing_small_image img{
+   
+ width:100%;
+ max-height:100%;
+    
+}
+
+.landing_small_image{
+    flex-basis:25%;
+    align-self:flex-end
+}
+
+.landing_cta{
+    flex-basis:20%;
+    text-align:right;
+    margin-top:4rem;
+    line-height: 2rem;
+    font-size:1.2rem
+}
+
+.landing_cta h1{
+    font-size:1.8rem;
+    letter-spacing: .2rem;
+    color:white
+}
+
+.landing_cta a{
+    color:white;
+    background-color:#ef233c;
+    padding:.4rem;
+    border:none;
+    border-radius:5px;
+    text-decoration:none;
+
+    
+}
+.landing_cta a:hover{
+    background:black;
+    color:#ef233c;
+}
+
+#first_divider{
+   fill:#404e7c;
+   position:absolute;
+   bottom:0;
+
+}
+
+/* second section */
+#second_section {
+    
+    background-color: #404e7c;
+    color:white;
+    
+}
+.second_section_container{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-between;
+    width:80vw;
+    margin:0 auto 2rem auto;
+    padding-bottom:4rem;
+    min-height: 100vh;
+   
+}
+
+.second_main_image {
+    flex-basis:50%;
+}
+.main_image_container img{
+    width:60%;
+    height:100%;
+   
+}
+
+
+.second_small_image{
+    flex-basis:30%;
+   
+    
+}
+.second_small_image img{
+  width:100%;
+  height:60%
+  
+}
+.second_section_text{
+    margin-left:2rem;
+    width:80%;
+    line-height:1.5rem;
+    margin-bottom:1rem;
+    color:white;
+}
+
+.second_section_text h2{
+    color:#f7c548;
+    
+    
+    margin-bottom:2rem
+}
+.second_section_text .last{
+    margin-bottom:2rem;
+  }
+.second_section_text a{
+    text-decoration: none;
+    color:white;
+    padding:.4rem;
+    border-radius:5px;
+    background-color: #ef233c;
+    
+}
+.second_section_text a:hover{
+    background:black;
+    color:#ef233c
+}
+
+#divider_two{
+    fill:#53917e;
+    position:absolute;
+    bottom:0;
+}
+
+
+/* third section */
+#third_section{
+    width:100%; ;
+    background-color:#53917e;
+    
+}
+
+#third_divider{
+    position:absolute;
+    
+}
+
+
+/* SHOP SECTION   */
+
+.shop_section_container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;;
+    
+
+}
+#sliderImage{
+    margin-bottom:2rem;
+}
+
+.shop_section_container img{
+    width:60%;
+    max-height: 100%;
+}
+
+
+.shop_section_container p {
+    color:#f7c548
+}
+
+.product_display_container{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1rem;
+    grid-template-rows: auto;
+    width:100%;
+    margin:0 auto;
+    padding-bottom:10rem;
+}
+
+.product_display{
+    text-align:center;
+}
+.product_display button{
+    padding:.4rem;
+    background-color:#ef233c;
+    color:white;
+    border-radius:5px;
+    margin-right:20%;
+}
+.product_display button:hover{
+    background:black;
+    color:#ef233c;
+}
+
+
+#shop_divider, #product_divider{
+    fill:#404E7C;
+    position:absolute;
+    bottom:0;
+}
+
+
+
+
+/*product section   */
+#product_section{
+    padding:6rem 0rem;
+
+}
+.product_section_container{
+  display:flex;
+  width:60vw;
+  flex-flow: row nowrap;
+  justify-content:center;
+  margin:8rem auto;
+  border:2px solid white;
+  padding:4rem;
+  border-radius:10px;
+  
+}
+
+.product_section_image{
+    flex-basis:50%;
+}
+
+.product_section_image button{
+    padding:.4rem;
+    border-radius:5px;
+    background-color:#ef233c;
+    color:white;
+    width:30%;
+    margin-right:20%;
+
+
+}
+.product_section_image button:hover{
+    background-color:black;
+    color:#ef233c
+}
+.product_image img{
+    max-width:100%;
+    max-height:100%;
+
+}
+.product_section_link{
+    align-self:center;
+    flex-basis:30%;
+    display:flex;
+    flex-direction:column;
+   
+}
+
+#front{
+    align-self:center;
+}
+
+.product_section_link img{
+    max-width:20%;
+    max-height:100%;
+    margin-bottom:1rem;
+}
+
+
+/* user section */
+
+#user-section{
+    padding: 4rem 0rem;
+    width:90vw;
+    margin:0 auto;
+}
+.user-section_container{
+    display:flex;
+    flex-flow: row nowrap;
+    width:100%;
+    height:100%;
+    padding:4rem 0;
+    
+    
+}
+.user-section_container input{
+    padding:.4rem;
+}
+.user-section_container button{
+    background-color:#ef233c;
+    color:white;
+    border-radius:5px ;
+    padding: .4rem;
+    margin-top:1.5rem;
+    width:30%;
+}
+
+.user-section_container button:hover{
+    background-color:black;
+    color:#ef233c;
+}
+.user-section_form{
+    flex-basis:80%;
+    border-right:1px solid white;
+    
+}
+
+.user-section_container span {
+    color:#f7c548
+}
+.form_one input {
+    margin-top:1rem;
+}
+.user-section_register .form_input{
+    display:grid;
+    grid-template-columns: 30% 30%;
+    grid-template-rows: auto;
+    column-gap:1.5rem;
+    row-gap:1.5rem;
+    margin-top:1rem
+}
+
+
+
+.user-section_image{
+    flex-basis:20%;
+    align-self:flex-end;
+}
+
+.user-section_image img{
+    width:100%;
+    max-height:100%;
+}
+
+
+
+/* abouts us section    */
+
+#about_section{
+    padding:4rem 0rem;
+    width:90vw;
+    margin:0 auto;
+    font-size:1.5rem;
+}
+.about_section_container h2{
+ color:#f7c548;
+}
+.about_section_container span{
+    color:#ef233c;
+    font-weight:bold;
+}
+.about_text{
+    width:100%;
+    text-align:justify;
+    line-height:3rem;
+    letter-spacing: .2rem;
+    
+}
+
+.about_section_container a{
+    color:white;
+    text-decoration:none;
+    border-bottom:4px solid #ef233c
+}
+
+/* footer */
+
+footer{
+    background-color:#404E7C;
+    color:white;
+    font-size:.7rem;
+    margin-top:-.1rem;
+}
+.footer_container{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content: space-between;
+    color:white;
+
+}
+
+
+footer a {
+    text-decoration:none;
+    color:white;
+
+}
+footer a:hover{
+    color:#ef233c
+}
+.footer_container_copyright{
+
+    align-self:center;
+}
+
+/* media queries */
+
+@media screen and (max-width: 769px){
+.navigation_container a{
+    font-size:.8rem;
+}
+ 
+
+.landing_section_container{
+    margin-top:6rem;
+    font-size:1rem;
+    
+}
+.landing_small_image{
+    flex-basis:27%;
+    align-self:center;
+}
+
+.landing_cta {
+   font-size:.8rem;
+   margin-top:0;
+   flex-basis:20%;
+   line-height: 1rem;
+  
+}
+
+.landing_cta p{
+    color:white;
+    
+}
+
+.landing_cta a{
+    padding:.2rem;
+
+}
+.landing_cta h1{
+    font-size:1.2rem;
+}
+
+.second_section_container{
+    width:90vw;
+    font-size:.8rem;
+    
+    
+}
+
+.second_main_image{
+    width:60%;
+   
+}
+.main_image_container{
+    width:80%;
+    
+}
+.second_small_image{
+    width:40%;
+}
+
+.second_section_text{
+    margin-left:2rem;
+    width:60%;
+    line-height:1rem;
+
+}
+.second_section_text h2{
+    margin-bottom:1rem;
+    text-decoration:none;
+    color:#53917e
+}
+.second_section_text .last{
+    margin-bottom:1rem;
+  }
+}
+
+
+
+
+@media screen and (max-width: 522px){
+    body{
+        font-size:1.2rem;
+        line-height:2rem;
+    }
+    .section{
+        padding-top:3rem;
+    }
+
+    
+    .navigation_container a{
+        font-size:.7rem;
+    }
+    
+    .landing_cta{
+        margin-top:-4rem;
+        z-index:2000
+    }
+    .landing_image{
+      position:absolute;
+      top:10%;
+    }
+    .landing_small_image{
+        display:none;
+    }
+    .landing_cta{
+        flex-basis:60%;
+    }
+    .landing_small_image{
+        flex-basis:30%;
+    }
+
+    .second_small_image{
+        display:none;
+    }
+    .second_main_image{
+        flex-basis:90%;
+        
+        align-self:center;
+        margin-left:5rem;
+
+    }
+    .main_image_container img{
+        width:80%;
+        height:100%;
+       
+    }
+
+    .second_section_text {
+        width:80%;
+        margin-left:0;
+        line-height:1.8rem;
+    }
+    .product_display_container{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 1rem;
+        grid-template-rows: auto;
+        width:100%;
+        margin:0 auto;
+        padding-bottom:10rem;
+    }
+
+    .product_section_container{
+        display:flex;
+        width:90vw;
+        flex-flow: row nowrap;
+        justify-content:center;
+        margin:4rem auto;
+        border:none;
+        padding:2rem;
+        
+        
+      }
+.product_section_image {
+    flex-basis:80%;
+}
+
+.product_section_link {
+  width:20%;
+
+}
+.product_section_image button{
+    width:50%;
+
+}
+.product_section_image img{
+    width:100%;
+
+}
+
+.product_section_link img{
+    width:100%;
+}
+
+.user-section_register .form_input{
+    display:grid;
+    grid-template-columns: 40% 40%;
+    grid-template-rows: auto;
+    column-gap:1rem;
+    row-gap:1rem;
+    margin-top:1rem
+}
+.form_one input 
+{
+    width:40%;
+}
+.user-section_container input {
+    padding:.1rem;
+ 
+
+}
+footer{
+        font-size: .6rem;
+        line-height:1rem;
+}
+    
+}
