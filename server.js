@@ -1,12 +1,19 @@
 // importing dependencies 
 const http = require('http');
 const app = require('./app');
-
+const sequelize = require('./util/database')
 require('dotenv').config()
 
 
-// assigning a port for now
-const port = 4000;
+
 //creating the server
 const server = http.createServer(app);
-server.listen(port)
+
+// connect to the database;
+sequelize.sync({alter:true})
+.then(()=>{
+    server.listen(process.env.PORT)
+    console.log('listening on ', process.env.PORT)
+    
+})
+.catch(err => console.log(err))
