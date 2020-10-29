@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/', shopCtrl.getLanding)
 router.get('/shop', shopCtrl.getShop)
-router.get('/product', shopCtrl.getProduct)
+router.get('/product/:id', shopCtrl.getProduct)
 router.get('/aboutus', shopCtrl.getAboutUs)
 
 module.exports = router

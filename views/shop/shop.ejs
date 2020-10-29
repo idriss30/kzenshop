@@ -3,75 +3,30 @@
 
         <div class="shop_section_container">
             <h2>K|<span style="color:rgb(217,4,41)">ZEN</span> COLLECTION </h2>
-            <img id= "sliderImage" src="img/slide1.jpg">
+            <div class="slide_container">
+                    <img id= "slider_image_one" src="/img/slide1.jpg">
+                    <img id="slider_image_two" src="/img/slide3.jpg">
+            </div>
+                
+            
+            
             <div class="product_display_container">
-                <div class="product_display">
+                <% products.forEach(product => { %>
+                    <div class="product_display">
                     
-                    <a href="#">
-                        <img  src="img/whitefront.jpg">
-                    </a>
-                    <p>white dial with tan leather strap</p>
-                    <form method="POST" action="#">
-                        <button>Add to Cart</button>
-                    </form>
+                        <a href="/product/<%=product.id%>">
+                            <img  src="img/<%=product.imageDisplay%>.jpg">
+                        </a>
+                        <p><%= product.name %></p>
+                        <form method="POST" action="#">
+                            <button>Add to Cart</button>
+                        </form>
+    
+                    </div>
+                <%  })  %>
+               
 
-                </div>
-
-                <div class="product_display">
-                    
-                    <a href="#">
-                        <img src="img/whitefront.jpg">
-                    </a>
-                    <p>white dial with tan leather strap</p>
-                    <form method="POST" action="#">
-                        <button>Add to Cart</button>
-                    </form>
-
-                </div>
-                <div class="product_display">
-                    
-                    <a href="#">
-                        <img src="img/whitefront.jpg">
-                    </a>
-                    <p>white dial with tan leather strap</p>
-                    <form method="POST" action="#">
-                        <button>Add to Cart</button>
-                    </form>
-
-                </div>
-                <div class="product_display">
-                    
-                    <a href="#">
-                        <img src="img/whitefront.jpg">
-                    </a>
-                    <p>white dial with tan leather strap</p>
-                    <form method="POST" action="#">
-                        <button>Add to Cart</button>
-                    </form>
-
-                </div>
-                <div class="product_display">
-                    
-                    <a href="#">
-                        <img src="img/whitefront.jpg">
-                    </a>
-                    <p>white dial with tan leather strap</p>
-                    <form method="POST" action="#">
-                        <button>Add to Cart</button>
-                    </form>
-
-                </div>
-                <div class="product_display">
-                    
-                    <a href="#">
-                        <img src="img/whitefront.jpg">
-                    </a>
-                    <p>white dial with tan leather strap</p>
-                    <form method="POST" action="#">
-                        <button>Add to Cart</button>
-                    </form>
-
-                </div>
+             
 
             </div>
 

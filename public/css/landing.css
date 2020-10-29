@@ -240,16 +240,40 @@ header{
     
 
 }
-#sliderImage{
+
+
+
+.slide_container{
+    text-align:center;
+    position:relative;
+    width:100%;
+}
+
+#slider_image_two{
+    position:absolute;
+    right:25%;
+    display:none;
+}
+
+
+
+#slider_image_one, #slider_image_two{
     margin-bottom:2rem;
+    max-width:50%;
 }
 
 .shop_section_container img{
-    width:60%;
+    width:80%;
     max-height: 100%;
 }
 
+.product_display_container img{
+  transition:transform 1s linear
+}
 
+.product_display_container img:hover{
+    transform:scale(1.2)
+}
 .shop_section_container p {
     color:#f7c548
 }
@@ -272,7 +296,7 @@ header{
     background-color:#ef233c;
     color:white;
     border-radius:5px;
-    margin-right:20%;
+    
 }
 .product_display button:hover{
     background:black;
@@ -292,9 +316,58 @@ header{
 /*product section   */
 #product_section{
     padding:6rem 0rem;
-
+    
 }
+
 .product_section_container{
+    box-sizing: border-box;
+    width:90vw;
+    display:flex;
+    flex-flow: row nowrap;
+    padding:1rem 1rem 6rem 1rem;
+    margin:0 auto 8rem auto;
+    border:2px solid white;
+    border-radius:5px;
+    font-size:1.3rem;
+    
+    
+}
+
+.product_section_image{
+    flex-basis:70%;
+    text-align:center;
+}
+
+.product_image img{
+    width:100%;
+    max-height:100%;
+}
+
+.product_section_image button{
+    color:white;
+    background-color: #ef233c;
+    padding:.4rem;
+    border-radius:5px;
+    border:none;
+    width:25%;
+}
+.product_section_image button:hover{
+    background-color:black;
+    color:#ef233c
+}
+
+.product_section_link{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    flex-basis:20%;
+}
+.product_section_link img{
+    width:80%;
+    max-height:100%;
+}
+
+/* .product_section_container{
   display:flex;
   width:60vw;
   flex-flow: row nowrap;
@@ -307,7 +380,8 @@ header{
 }
 
 .product_section_image{
-    flex-basis:50%;
+    flex-basis:70%;
+    
 }
 
 .product_section_image button{
@@ -325,7 +399,7 @@ header{
     color:#ef233c
 }
 .product_image img{
-    max-width:100%;
+    width:100%;
     max-height:100%;
 
 }
@@ -334,6 +408,7 @@ header{
     flex-basis:30%;
     display:flex;
     flex-direction:column;
+    margin-left:2rem;
    
 }
 
@@ -345,7 +420,7 @@ header{
     max-width:20%;
     max-height:100%;
     margin-bottom:1rem;
-}
+} */
 
 
 /* user section */
@@ -616,14 +691,12 @@ footer a:hover{
     }
 
     .product_section_container{
-        display:flex;
-        width:90vw;
+       
         flex-flow: row nowrap;
-        justify-content:center;
         margin:4rem auto;
         border:none;
         padding:2rem;
-        
+        font-size:.8rem;
         
       }
 .product_section_image {
@@ -645,7 +718,7 @@ footer a:hover{
 
 .product_section_link img{
     width:100%;
-}
+} 
 
 .user-section_register .form_input{
     display:grid;
