@@ -10,6 +10,8 @@ const router = express.Router();
 router.get('/', shopCtrl.getLanding)
 router.get('/shop', shopCtrl.getShop)
 router.get('/product/:id', shopCtrl.getProduct)
-router.get('/aboutus', shopCtrl.getAboutUs)
+router.get('/aboutus', shopCtrl.getAboutUs);
+router.get('/policy', shopCtrl.getPolicy);
+router.get('/terms', shopCtrl.getTerms)
 
 module.exports = router

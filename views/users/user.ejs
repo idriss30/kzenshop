@@ -14,8 +14,8 @@
                     </div>
                     <form method="POST" action="/users/login">
                         <div class="form_one">
-                            <input type="text" name="username" placeholder="username">
-                            <input type="password" name="password" placeholder="password">
+                            <input type="text" name="username" placeholder="username" required>
+                            <input type="password" name="password" placeholder="password" required>
                         
                         </div>
                         <button><a>Login</a></button>
@@ -38,22 +38,22 @@
                 </div>
                 <form method="POST" action="/users/register">
                       <div class="form_input">
-                        <input type="text" name="firstName" id="firstname" placeholder="first name">
+                        <input type="text" name="firstName" id="firstname" placeholder="first name" required>
                     
-                        <input id="lastname" name="lastname" type="text" placeholder="last name">
+                        <input id="lastname" name="lastname" type="text" placeholder="last name" required>
         
                         <input type="password" name="password" id="password" placeholder="password">
                         
-                        <input type="password" name="confirmpassword" id="confirmPassword" placeholder="Confirm password">
-                        <input type="text" name="username" id="username" placeholder ="username">
+                        <input type="password" name="confirmpassword" id="confirmPassword" placeholder="Confirm password" required>
+                        <input type="text" name="username" id="username" placeholder ="username" required>
                         
-                        <input type="email" name="email" id="email" placeholder="email">
-                        <input type="text" name="address" id="address" placeholder="address">
+                        <input type="email" name="email" id="email" placeholder="email" required>
+                        <input type="text" name="address" id="address" placeholder="address" required>
                             
-                        <input type="text" name="city" id="city" placeholder="city">
-                        <input type="text" name="state" id="state" placeholder= "state">
+                        <input type="text" name="city" id="city" placeholder="city" required>
+                        <input type="text" name="state" id="state" placeholder= "state" required>
 
-                        <input type="text" name="zipcode" id="zipcode" maxlength="5" placeholder="zip code">
+                        <input type="text" name="zipcode" id="zipcode" maxlength="5" placeholder="zip code" required>
 
 
                       </div>

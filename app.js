@@ -30,4 +30,9 @@ app.use('/', shopRoutes)
 //user routes 
 app.use('/users', userRoutes)
 
+//404 pages
+app.use((req, res, next)=>{
+    res.render('404.ejs')
+})
+
 module.exports = app;

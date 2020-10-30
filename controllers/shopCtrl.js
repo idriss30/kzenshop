@@ -47,3 +47,14 @@ module.exports.getProduct = async(req, res, next)=>{
 module.exports.getAboutUs = async(req, res, next)=>{
     res.render('shop/aboutUs.ejs')
 }
+
+// get policy ctrl
+module.exports.getPolicy = async (req, res, next)=>{
+    res.render("shop/policy.ejs")
+}
+
+//get terms 
+
+module.exports.getTerms = async(req, res, next)=>{
+    res.render('shop/terms.ejs')
+}
