@@ -7,6 +7,13 @@ const productFront = document.getElementById('front');
 const productBack = document.getElementById('back');
 const productSectionContainer = document.querySelector('.product_section_container')
 const productImage = document.querySelector('.product_image img')
+//user-section-dom
+const registerForm = document.querySelector('#register');
+const password = document.querySelector('#password')
+const confirmPassword = document.querySelector("#confirmPassword");
+
+
+
 //change  image on shop page
 if(slideContainer){
     //set intervall every 3s;
@@ -46,4 +53,17 @@ productBack.addEventListener('click', (e)=>{
     productImage.src = productBack.src
 })
 
+}
+
+// check user input on login page
+
+if(registerForm){//there is a registerForm
+  registerForm.addEventListener('submit', (e)=>{
+        
+        if(password.value !== confirmPassword.value){
+            alert('passwords no not match try again ')
+            registerForm.reset();
+            e.preventDefault();
+        }
+  })
 }

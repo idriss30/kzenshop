@@ -519,6 +519,107 @@ header{
     border-bottom:4px solid #ef233c
 }
 
+
+
+/* popup_section  */
+#popup_section{
+    text-align:center;
+    
+    
+}
+.popup_container{
+    border:2px solid #404E7C;
+    border-radius:5px;
+    position:absolute;
+    top:20%;
+    left:50%;
+    transform: translate(-50%, -20%);
+    padding:1rem;
+    box-sizing: border-box;
+    background-color: #404E7C;
+}
+.popup_container-closing{
+    position:absolute;
+    top:2%;
+    right:2%;
+}
+
+.popup_container-message p:first-child{
+    color:#f7c548;
+    font-weight:bold;
+    margin-top:5rem;
+}
+
+.popup_container-message p:last-child{
+    animation:fadeOut;
+    animation-duration: .6s;
+    animation-iteration-count: 2;
+  
+
+
+}
+
+/* profile page */
+#user-profile{
+    width:90vw;
+    margin:0 auto;
+    min-height:100vh;
+
+}
+
+.user-profile_container{
+    display:grid;
+    width:100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 2rem;
+    padding:5rem 0;
+    
+
+}
+
+.user-profile_form{
+    border-right:1px solid white;
+
+}
+.user-profile_form button{
+    margin-top:2rem;
+    width:30%;
+    padding:.4rem;
+    background-color:#ef233c;
+    
+    color:white;
+    border-radius:5px;
+    
+}
+.update_form input{
+    width:40%;
+    margin-top:1rem;
+    padding:.4rem;
+}
+
+.user-profile_form button:hover{
+    background-color:black;
+    color:#ef233c
+}
+.user-profile_image img{
+ float:right;
+ max-width:20%;
+}
+.user-profile_image{
+    border-top:1px solid white;
+    
+}
+.user-profile_container .logout, .user-profile_container .delete{
+    color:white;
+    text-decoration:none;
+    border-bottom:3px solid #ef233c;
+}
+
+.logout{
+    float:right;
+}
+
 /* footer */
 
 footer{
@@ -737,9 +838,44 @@ footer a:hover{
  
 
 }
+
+
+.popup_container{
+    font-size:.8rem;
+}
+
+.user-profile_container{
+    display:grid;
+    width:100%;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    column-gap: 2rem;
+    padding:5rem 0;
+    
+
+}
+.user-profile_form{
+    border-right: none;
+}
+
+.update_form input{
+    width:80%;
+}
+.user-profile_form button{
+  width:50%;
+}
 footer{
         font-size: .6rem;
         line-height:1rem;
 }
     
+}
+
+@media screen and (max-width: 320px){
+    body{
+        font-size:1rem;
+    }
+    .navigation_list ul li{
+        margin-left:0.5rem;
+    }
 }

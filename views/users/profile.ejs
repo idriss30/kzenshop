@@ -1,0 +1,69 @@
+<%- include('../includes/header.ejs')   %>
+
+<section class= "section" id="user-profile">
+    <div class="user-profile_container">
+        <div class="user-profile_form">
+            <h3> Welcome <span style="color:#f7c548"><%= user.username %></span></h3>
+            <p>please fill out form below if you wish to update your info</p>
+             <div class="update_form">
+                <form method="POST" id="register" action="/users/update">
+                    <div class="form_input">
+
+                      <input type="password" name="password" id="password" placeholder="password">
+                      
+                      <input type="password" name="confirmpassword" id="confirmPassword" placeholder="Confirm password" required>
+                      
+                      
+                      <input type="email" name="email" id="email" placeholder="<%= user.email %>" required>
+                      <input type="text" name="address" id="address" placeholder="<%= user.address %>" required>
+                          
+                      <input type="text" name="city" id="city" placeholder="<%= user.city %>" required>
+                      <input type="text" name="state" id="state" placeholder= "<%= user.state %>" required>
+
+                      <input type="text" name="zipcode" id="zipcode" maxlength="5" placeholder="<%= user.zipCode %>" required>
+
+
+                    </div>
+                  
+                  <div>
+                      <input type="hidden" name="userId" value="<%= user.id %>">
+                      <button><a>Update</a></button>
+
+                  </div>
+              
+                  
+
+              </form>
+
+
+             </div>
+             <div class="button_link" style="margin-top:3rem;">
+                <a  class="delete" href="/users/delete/<%= user.id %>">delete my profile</a>
+                <a class="logout"  href="/users/logout"> logout</a>
+
+             </div>
+            
+
+        </div>
+        <div class="user-profile_orders">
+            <p>You do not have any order</p>
+
+        </div>
+      
+       
+
+    </div>
+    <div class="user-profile_image">
+        <img src="/img/dis.jpg" alt="watch-dial" name="watch-dial">
+
+    </div>
+     
+    <svg id="product_divider" data-name="divider 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 94">
+        <polygon class="cls-1" points="0 94 512 0 1024 94 0 94"/></svg>
+
+
+</section>
+
+
+
+<%- include('../includes/footer.ejs')   %>

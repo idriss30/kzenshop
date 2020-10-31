@@ -1,0 +1,38 @@
+<%- include('./includes/header') %>
+
+<section class="section" id="popup_section">
+    <div class="popup_container">
+        <div class="popup_container-closing">
+            <a href ="#" class="close_icon"><i class="fa fa-window-close" aria-hidden="true"></i></a>
+
+        </div>
+        <div class="popup_container-message">
+              <p><%= message %></p>
+              <p> you are being redirected...</p>
+        </div>
+    </div>
+
+
+
+</section>
+<% if(url){ %>
+    <script>
+        const url = 'http://localhost:4000/users/login'
+        setTimeout(()=>{
+            window.location.replace(url)
+        }, 3000)
+
+    </script>
+
+<% } else { %>
+<script>
+    document.querySelector('.close_icon').addEventListener('click', ()=>{
+        window.location.replace('http://localhost:4000/')
+    })
+    setTimeout(()=>{
+        window.location.replace('http://localhost:4000/')
+
+    },3000)
+</script>
+
+<% } %>
