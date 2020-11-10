@@ -1,0 +1,62 @@
+<%- include("../includes/header") %>
+<section class="section" id="cart_section">
+    <div class="cart_section_container">
+       <div>
+        <% products.forEach(product =>{ %>
+            <div class="cart_section_product-display">
+            
+
+                <div class="cart_image_display">
+                    <img src="/img/<%=product.imageFront%>.JPG">
+                </div>
+                <div class="cart_price">
+                    <span>
+                       $<%= product.price %>
+                    </span>
+     
+                </div>
+                <div class="cart_quantity">
+                    <a class ="cart_quantity-button down" href="#">-</a>
+                    <span id="qty"><%= product.cartItem.quantity %></span>
+                    <a class ="cart_quantity-button up" id="up" href="#">+</a>
+                    <input type ="hidden" value="<%= product.id %>" name="productID">
+                </div>
+                <div class="cart_section_close">
+                    <a class= "delete_button" href = '/cart/delete/<%= product.id%>'>x</a>
+                   
+                </div>
+                
+       
+            </div>
+
+         <% }) %>
+       
+       </div>
+       <div class="cart_section_total">
+           <h2>Total</h2>
+            Sub-Total $
+            <span style="color:#f7c548"><%= total %></span>
+            <p>delivery:</p>
+           <form method="POST" action="#">
+            <input type="text" name="address" id="address" placeholder="address" required>
+                            
+            <input type="text" name="city" id="city" placeholder="city" required>
+            <input type="text" name="state" id="state" placeholder= "state" required>
+
+            <input type="text" name="zipcode" id="zipcode" maxlength="5" placeholder="zip code" required>
+               <div>
+                <button>Checkout</button>
+                <a href ="/cart/deleteCart">Delete Cart</a>
+               </div>
+              
+           </form>
+
+       </div>
+    </div>
+    <div class="cart_section_first_total">
+        subTotal = $<span style="color:#f7c548"><%= total %></span>
+    </div>
+    <svg id="shop_divider" data-name="divider 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 94">
+        <polygon class="cls-1" points="0 94 512 0 1024 94 0 94"/></svg>
+</section>
+<%- include('../includes/footer') %>

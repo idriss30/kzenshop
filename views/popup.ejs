@@ -15,7 +15,7 @@
 
 
 </section>
-<% if(url){ %>
+<% if(url === 'login'){ %>
     <script>
         const url = 'http://localhost:4000/users/login'
         setTimeout(()=>{
@@ -24,7 +24,7 @@
 
     </script>
 
-<% } else { %>
+<% } else if(url=== 'home') { %>
 <script>
     document.querySelector('.close_icon').addEventListener('click', ()=>{
         window.location.replace('http://localhost:4000/')
@@ -34,5 +34,16 @@
 
     },3000)
 </script>
+<% } else {  %>
+    <script>
+        document.querySelector('.close_icon').addEventListener('click', ()=>{
+            window.location.replace('http://localhost:4000/')
+        })
+        setTimeout(()=>{
+            window.location.replace('http://localhost:4000/shop')
+    
+        },3000)
+    </script>
+  
 
 <% } %>

@@ -11,6 +11,10 @@ const productImage = document.querySelector('.product_image img')
 const registerForm = document.querySelector('#register');
 const password = document.querySelector('#password')
 const confirmPassword = document.querySelector("#confirmPassword");
+//get cart quantity items
+const quantityDiv = document.querySelector('.cart_quantity');
+const decreaseButton = document.getElementsByClassName('down');
+const increaseButton = document.getElementsByClassName('up');
 
 
 
@@ -66,4 +70,53 @@ if(registerForm){//there is a registerForm
             e.preventDefault();
         }
   })
+}
+
+
+
+// managing the increase and decrease controller
+if(quantityDiv){
+    // manage decrease first
+    const decreaseButtonArray = Array.from(decreaseButton);
+    // decrease function
+    decreaseButtonArray.forEach(button =>{
+        const id = button.parentElement.lastElementChild.value;
+        button.addEventListener('click', (e)=>{
+            e.preventDefault();
+            axios.get(`http://localhost:4000/cart/decrease/${id}`)
+            .then(response =>{
+                if(response.data.message === 'success'){
+                    window.location.href = 'http://localhost:4000/cart/cartItems'
+                    
+                }else{
+                    alert("sorry can't have less than on item delete instead")
+                }
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+
+        })
+    })
+   // create increase Array
+    const increaseButtonArray = Array.from(increaseButton)
+    increaseButtonArray.forEach(eachIncrease =>{
+          const id = eachIncrease.parentElement.lastElementChild.value
+          eachIncrease.addEventListener('click', (e)=>{
+              e.preventDefault();
+              axios.get(`http://localhost:4000/cart/increase/${id}`)
+              .then(response =>{
+                  if(response.data.message === 'success'){
+                    window.location.href = 'http://localhost:4000/cart/cartItems'
+                       
+                  }else{
+                    alert('sorry can not buy more than 10')
+                  }
+              })
+              .catch(err =>{
+                  console.log(err)
+              })
+          })
+    })
+
 }

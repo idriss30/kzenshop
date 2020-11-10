@@ -5,7 +5,7 @@ require('dotenv').config()
 
 //get login page
 exports.getUserPage = async(req, res, next)=>{
-    res.render('users/user')
+    res.render('users/user', {title:'login',path:'/login', session: req.cookies.token ? true : false })
 }
 
 //create login post ctrl
@@ -19,7 +19,7 @@ exports.postUserLogin = async(req, res, next)=>{
         )
 
         if(!isUser){// if user doesn't exist
-             res.render('popup.ejs', {message:'user not found', url:true})
+             res.render('popup.ejs', {message:'user not found', url:'login', path:'popup',session: req.cookies.token ? true : false })
         }
         //check if passwords match
        const isPassVerified = await bcrypt.compare(req.body.password, isUser.password);
@@ -30,14 +30,15 @@ exports.postUserLogin = async(req, res, next)=>{
         })
         //send a cookie 
         res.cookie('token', token);
-        res.render('popup.ejs', {message:'you have been logged in', url:false})
-        
+        res.redirect('http://localhost:4000/users/profile');
+     
+    
        }else{
-          res.render('popup.ejs', {message:'password does not match try again!', url:true})
+          res.render('popup.ejs', {message:'password does not match try again!', url:'login', path:'popup',session: req.cookies.token ? true : false})
        }
         
     } catch (error) {
-        res.render('conponents/popup.ejs', {message:error, url:true} )
+        res.render('popup.ejs', {message:error, url:'login', path:'popup',session: req.cookies.token ? true : false } )
     }
 
 }
@@ -54,7 +55,7 @@ exports.postCreateUser = async(req, res, next)=>{
             }
         })
         if(userExist){
-            res.render('popup.ejs', {message:'email found, please login instead', url:true})
+            res.render('popup.ejs', {message:'email found, please login instead', url:'login',  path:'popup',session: req.cookies.token ? true : false})
         }
         else{
             const hashedPassword = await bcrypt.hash(userData.password, 10)
@@ -69,14 +70,14 @@ exports.postCreateUser = async(req, res, next)=>{
                  state:userData.state,
                  zipCode:userData.zipcode
             })
-            res.render('popup.ejs', {message:'Account has been created.', url:false})
+            res.render('popup.ejs', {message:'Account has been created.', url:'shop', path:'popup',session: req.cookies.token ? true : false})
 
         }
 
        
        
     } catch (error) {
-        res.render('popup.ejs', {message:error, url:true})
+        res.render('popup.ejs', {message:error, url:'login', path:'popup',session: req.cookies.token ? true : false})
     }
     
     
@@ -85,37 +86,22 @@ exports.postCreateUser = async(req, res, next)=>{
 
 // create profile ctrl
 exports.getProfile = async(req, res, next)=>{
-    try {
-     /*    //verify token
-        const decoded = await jwt.verify(req.cookies.token, process.env.SECRET_PASS);
-        if(decoded){
-            const user = await User.findOne({
-                where:{
-                    id:decoded.userId
-                }
-            })
-            res.render('users/profile.ejs', {user})
-
-        }else{
-            res.render('popup.ejs', {message:'you do not have authorization to view this', url:true})
-        } */
+  try {
     
-        const decoded = req.token;
-        const user = await User.findOne({
-            where:{
-                id: decoded.userId
-            }
-        })
-        if(user){
-            res.render('users/profile.ejs',  {user})
-        }
-        else{
-            res.render('popup.ejs', {message:'there is a problem with your account', url:true})
-        }
-
-    } catch (error) {
-        res.render('popup.ejs', {message:'you do not have authorization to view this', url:false}) 
-    }
+      const user = await User.findOne({where:{
+          id:req.token.userId
+      }})
+      if(user){
+          res.render('users/profile', {user, title:'Profile', path:'/profile', session: req.cookies.token ? true : false})
+      }else{
+          res.render('popup.ejs', {message:'there is a problem with your account', url:'login', path:'popup',session: req.cookies.token ? true : false})
+      }
+      
+      
+  } catch (error) {
+      res.render('popup.ejs', {message:"can't render view", url:'login', path:'popup',session: req.cookies.token ? true : false})
+  }
+  
 }
 
 //update the profile
@@ -136,12 +122,12 @@ exports.postUpdateProfile = async(req, res, next)=>{
         }, {where:{
              id: updateData.userId
         }})
-        res.render('popup.ejs', {message:'your account has been updated', url:false})
+        res.render('popup.ejs', {message:'your account has been updated', url:'shop', path:'popup',session: req.cookies.token ? true : false})
 
 
 
     } catch (error) {
-        res.render('popup.ejs', {message:error, url:true})
+        res.render('popup.ejs', {message:error, url:'login', path:'popup',session: req.cookies.token ? true : false})
         
         
     }
@@ -152,7 +138,7 @@ exports.postUpdateProfile = async(req, res, next)=>{
 
 exports.getLogout = async(req, res, next)=>{
     res.clearCookie('token')
-    res.render('popup.ejs', {message:'you have been logged out', url:false})
+    res.render('popup.ejs', {message:'you have been logged out', url:'home', path:'popup',session: req.cookies.token ? true : false})
 }
 
 //creating delete routes
@@ -168,10 +154,17 @@ exports.getDeleteUser = async (req, res, next)=>{
           }
       });
       //handle the result;
-      if(!deleteQuery )res.render('popup.ejs', {message:"can't delete your account right now", url:true})
-      if(deleteQuery) res.render('popup', {message:'user deleted', url:false})
+      if(!deleteQuery )res.render('popup.ejs', {message:"can't delete your account right now", url:'login', path:'popup',session: req.cookies.token ? true : false})
+      if(deleteQuery){ 
+          
+        if(req.cookies.token){
+            res.clearCookie('token')
+        }
+        res.render('popup', {message:'user deleted', url:'shop', path:'popup',session: req.cookies.token ? true : false})
+    
+    }
   } catch (error) {
-      res.render('popup.ejs', {message:error, url:true})
+      res.render('popup.ejs', {message:error, url:'login', path:'popup',session: req.cookies.token ? true : false})
   }
  
 }

@@ -2,9 +2,9 @@
     <div class="footer_container">
         <div class ="footer_container_rules">
             <ul>
-                <li ><a  href="/aboutus">About Us</a></li>
-                <li ><a  href="/policy">Policy</a></li>
-                <li ><a  href="/terms">Terms & conditions</a></li>
+                <li ><a class="<%= path === '/about'? 'active': '' %>" href="/aboutus">About Us</a></li>
+                <li ><a class="<%= path === '/policy'? 'active': '' %>" href="/policy">Policy</a></li>
+                <li ><a class="<%= path === '/terms'? 'active': '' %>" href="/terms">Terms & conditions</a></li>
             </ul>
             
         </div>
@@ -28,7 +28,7 @@
 
 
 </div>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src ="/scripts/mainScripting.js"></script>
 
 

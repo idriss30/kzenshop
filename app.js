@@ -4,7 +4,8 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const shopRoutes = require('./routes/shop');
-const userRoutes = require('./routes/user')
+const userRoutes = require('./routes/user');
+const cartRoutes = require('./routes/cart')
 
 
 //initializing express
@@ -30,9 +31,13 @@ app.use('/', shopRoutes)
 //user routes 
 app.use('/users', userRoutes)
 
+
+//cart routes
+app.use('/cart', cartRoutes)
+
 //404 pages
 app.use((req, res, next)=>{
-    res.render('404.ejs')
+    res.render('404.ejs', {path:'404' , session: req.cookies.token ? true : false })
 })
 
 module.exports = app;

@@ -11,19 +11,25 @@
             
             
             <div class="product_display_container">
-                <% products.forEach(product => { %>
+                <% products.forEach(product=> { %>
                     <div class="product_display">
                     
                         <a href="/product/<%=product.id%>">
                             <img  src="img/<%=product.imageDisplay%>.jpg">
                         </a>
                         <p><%= product.name %></p>
-                        <form method="POST" action="#">
+                        <p style = 'color:white'>$<span><%= product.price %></span></p>
+                       <form method="POST" action="/cart/addProduct">
+                             <input type = "hidden" name="productId" value="<%= product.id %>">
                             <button>Add to Cart</button>
-                        </form>
+                        </form> 
+                        
     
                     </div>
-                <%  })  %>
+
+               <% }) %>
+                   
+                
                
 
              
