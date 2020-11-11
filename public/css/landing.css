@@ -658,12 +658,12 @@ header{
  margin-top:1rem;
 }
 .cart_section_total button{
-    width:50%;
+    width:70%;
     padding:.4rem;
     margin-top:1rem;
     background-color:#ef233c;
     color:white;
-
+    margin-bottom:2rem;
 }
 
 .cart_section_total a{
@@ -671,8 +671,9 @@ header{
     color:white;
     background-color: #ef233c;
     border: 2px solid #53917e;
-    width:50%;
+    width:auto;
     padding:.4rem;
+   float:right
 }
 
 .cart_section_total a:hover, .cart_section_total button:hover{

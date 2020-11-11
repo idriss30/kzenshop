@@ -1,7 +1,9 @@
 const Cart = require('../models/cart');
 const CartItem = require('../models/cart-item');
 const Product = require('../models/product');
-
+const User = require('../models/user');
+require('dotenv').config()
+const jwt = require('jsonwebtoken')
 
 module.exports.postCart = async (req, res, next) => {
     const product = await Product.findOne({
@@ -83,7 +85,8 @@ module.exports.postCart = async (req, res, next) => {
                 })
                 if (addProd) {
                     res.cookie('cart', cart.id, {
-                        expires: new Date(Date.now() + 900000)
+                        expires: new Date(Date.now() + 	
+                        3600000)
                     });
                     res.redirect(req.get('referer'))
                 } else {
@@ -113,6 +116,7 @@ module.exports.postCart = async (req, res, next) => {
 
 
 module.exports.getCart = async (req, res, next)=>{
+
     // checkif cart
     if(req.cookies.cart){
         try {
@@ -124,7 +128,7 @@ module.exports.getCart = async (req, res, next)=>{
             })
             if(cart){
                 //get the products
-                const totals = [];
+                const totals = [];// create array of totals
                 const products = await cart.getProducts();
                 if(products){
                   // add every total the the array
@@ -136,7 +140,37 @@ module.exports.getCart = async (req, res, next)=>{
                     const total = totals.reduce((a,b)=>{
                         return a +b
                     })
-                    res.render('cart/cart', {products, total, path:'/cart', title:'cart', session:req.cookies.token?true:false})
+                    //before render check if(user is connected)
+                    if(req.cookies.token){
+                        //verify the token
+                        
+                        try {
+                            const verified = jwt.verify(req.cookies.token, process.env.SECRET_PASS);
+                            const user = await User.findOne({
+                                where:{
+                                    id: verified.userId
+                                }
+                            })
+                            if(user){
+                                res.render('cart/cart', {products, total, user, path:'/cart', title:'cart', session:true})
+                            }
+                        } catch (error) {
+                            res.render('popup.ejs',{path:'/popup', url:'home', message:'problem with your account try login out', token:true })
+                        }
+                    
+                     
+                      
+
+                        
+                       
+
+                        
+                    }
+                
+                    else{
+                        res.render('cart/cart', {products, total, path:'/cart', title:'cart', session:false, user:undefined})
+                    }
+                   
                   }else{
                     res.render('popup.ejs', {message: 'you do not have any product in your cart', url:'shop', title:'popup', path:'/popup', session:req.cookies.token? true:false})
                   }
