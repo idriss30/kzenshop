@@ -1,3 +1,5 @@
+
+
 // declaring all variables to manipulate Dom
 const slideContainer = document.querySelector('.slide_container');
 const sliderImageTwo = document.querySelector('#slider_image_two')
@@ -15,6 +17,10 @@ const confirmPassword = document.querySelector("#confirmPassword");
 const quantityDiv = document.querySelector('.cart_quantity');
 const decreaseButton = document.getElementsByClassName('down');
 const increaseButton = document.getElementsByClassName('up');
+//get the profile variables
+const profileSection = document.querySelector('#user-profile');
+const orderDetail = document.querySelector('.user-profile_orders')
+
 
 
 
@@ -119,4 +125,16 @@ if(quantityDiv){
           })
     })
 
+}
+
+// manage orders pAGE
+
+if(profileSection){
+    axios.get('http://localhost:4000/users/orders')
+    .then(response =>{
+       console.log(response)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 }

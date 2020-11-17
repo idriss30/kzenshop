@@ -3,14 +3,13 @@ body{
     margin:0;
     padding:0;
     color:white;
-    /* font-family: 'Nunito', sans-serif; */
+     font-family: 'Nunito', sans-serif; 
     
-     background-color: #53917e; 
-    
+    background-color: #53917e; 
     font-size:1rem;
     animation:fadeIn 1s linear;
     letter-spacing: .2rem;
-    
+   
 }
 
 .navigation_container .active, .footer_container .active{
@@ -90,6 +89,7 @@ header{
     flex-wrap:nowrap;
     justify-content: space-between;
     min-height:80%;
+    padding-bottom:10rem;
    
 }
 
@@ -160,7 +160,7 @@ header{
     justify-content: space-between;
     width:80vw;
     margin:0 auto 2rem auto;
-    padding-bottom:4rem;
+    padding-bottom:10rem;
     min-height: 100vh;
    
 }
@@ -241,7 +241,7 @@ header{
     display:flex;
     flex-direction:column;
     align-items: center;;
-    
+    padding-bottom:5rem;
 
 }
 
@@ -377,7 +377,7 @@ header{
 /* user section */
 
 #user-section{
-    padding: 4rem 0rem;
+    padding: 8rem 0rem;
     width:90vw;
     margin:0 auto;
 }
@@ -386,7 +386,7 @@ header{
     flex-flow: row nowrap;
     width:100%;
     height:100%;
-    padding:4rem 0;
+    padding:8rem 0;
     
     
 }
@@ -529,7 +529,7 @@ header{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     column-gap: 2rem;
-    padding:5rem 0;
+    padding:8rem 0;
     
 
 }
@@ -564,7 +564,7 @@ header{
 }
 .user-profile_image{
     border-top:1px solid white;
-    
+    min-height:200px;
 }
 .user-profile_container .logout, .user-profile_container .delete{
     color:white;
@@ -693,6 +693,16 @@ header{
     margin-bottom:5rem;
 }
 
+
+
+
+
+/* checkout section (success and cancel) */
+ #success_section{
+   width:90vw;
+   margin-top:10%;
+   text-align:center;
+}
 /* footer */
 
 footer{

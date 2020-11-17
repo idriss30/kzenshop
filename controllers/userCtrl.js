@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt');
 const jwt= require('jsonwebtoken');
+const Order = require('../models/orders')
 require('dotenv').config()
 
 //get login page
@@ -92,7 +93,18 @@ exports.getProfile = async(req, res, next)=>{
           id:req.token.userId
       }})
       if(user){
-          res.render('users/profile', {user, title:'Profile', path:'/profile', session: req.cookies.token ? true : false})
+          const orders = await Order.findAll({
+              where:{
+                 email:user.email 
+              }
+          })
+          if(orders){
+            res.render('users/profile', {user, title:'Profile', path:'/profile', session: req.cookies.token ? true : false, orders:orders })
+          }
+          else{
+            res.render('users/profile', {user, title:'Profile', path:'/profile', session: req.cookies.token ? true : false, orders:null})
+          }
+          
       }else{
           res.render('popup.ejs', {message:'there is a problem with your account', url:'login', path:'popup',session: req.cookies.token ? true : false})
       }
@@ -168,3 +180,5 @@ exports.getDeleteUser = async (req, res, next)=>{
   }
  
 }
+
+

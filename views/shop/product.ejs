@@ -16,9 +16,11 @@
 
             </div>
             <div style="text-align:center">
-                <button>
-                    add to cart
-                </button>
+                <form method="POST" action="/cart/addProduct">
+                    <input type = "hidden" name="productId" value="<%= product.id %>">
+                   <button>Add to Cart</button>
+               </form> 
+               
             </div>
             
 

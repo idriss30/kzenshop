@@ -37,7 +37,11 @@
             Sub-Total $
             <span style="color:#f7c548"><%= total %></span>
             <p>Your info:</p>
-           <form method="POST" action="#">
+          
+             
+             <form id="order-form" method="POST" action="/checkout/postOrder">
+
+          
             <% if(user){ %>
                 <input type="email" name="email" id="email" placeholder="<%= user.email %>" value="<%=user.email %>" required>
                 <input type="text" name="fullName" id="fullName" placeholder="Full Name" required>
@@ -47,14 +51,8 @@
                 <input type="text" name="state" id="state" placeholder= "<% user.state %>" value="<%=user.state %>" required>
     
                 <input type="text" name="zipcode" id="zipcode" maxlength="5" placeholder="<%= user.zipCode%>" value="<%= user.zipCode %>" required>
-                   <div>
-                    <button>Checkout</button>
-                   </div>
-                   <div>
-                   
-                    <a href ="/cart/deleteCart">Delete Cart</a>
-                   </div>
-
+                <input type ="hidden" name="total" value="<%= total %>">
+                           
             <% } else if(user === undefined) { %>
                 <input type="email" name="email" id="email" placeholder="email" required>
                 <input type="text" name="fullName" id="fullName" placeholder="Full Name" required>
@@ -64,18 +62,22 @@
                 <input type="text" name="state" id="state" placeholder= "state" required>
     
                 <input type="text" name="zipcode" id="zipcode" maxlength="5" placeholder="zip code" required>
-                   <div>
-                    <button>Checkout</button>
-                   </div>
-                   <div>
-                   
-                    <a href ="/cart/deleteCart">Delete Cart</a>
-                   </div>
+                <input type ="hidden" name="total" value="<%= total %>">
+                           
 
-            <% } %>
+            <% } %> 
+            
+                <div>
+                    <button > Checkout</button>
+                 </div>
         
-              
-           </form>
+               <div>
+               
+                <a href ="/cart/deleteCart">Delete Cart</a>
+               </div>
+        
+               <input type="hidden" name = 'qty' value="<%= qty %>"   >
+            </form>
 
        </div>
     </div>
@@ -85,4 +87,5 @@
     <svg id="shop_divider" data-name="divider 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 94">
         <polygon class="cls-1" points="0 94 512 0 1024 94 0 94"/></svg>
 </section>
+
 <%- include('../includes/footer') %>

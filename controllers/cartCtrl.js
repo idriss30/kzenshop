@@ -152,23 +152,17 @@ module.exports.getCart = async (req, res, next)=>{
                                 }
                             })
                             if(user){
-                                res.render('cart/cart', {products, total, user, path:'/cart', title:'cart', session:true})
+                                res.render('cart/cart', {products, total, user, path:'/cart', title:'cart', session:true, qty:products.length})
                             }
                         } catch (error) {
                             res.render('popup.ejs',{path:'/popup', url:'home', message:'problem with your account try login out', token:true })
                         }
-                    
-                     
-                      
-
-                        
-                       
 
                         
                     }
                 
                     else{
-                        res.render('cart/cart', {products, total, path:'/cart', title:'cart', session:false, user:undefined})
+                        res.render('cart/cart', {products, total, path:'/cart', title:'cart', session:false, user:undefined, qty:products.length})
                     }
                    
                   }else{

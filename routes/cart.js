@@ -16,4 +16,5 @@ router.get('/decrease/:id', cartCtrl.decreaseQuantity);
 
 router.get('/deleteCart', cartCtrl.DeleteCart);
 
+
 module.exports = router

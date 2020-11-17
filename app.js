@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const shopRoutes = require('./routes/shop');
 const userRoutes = require('./routes/user');
-const cartRoutes = require('./routes/cart')
+const cartRoutes = require('./routes/cart');
+const checkoutRoutes = require('./routes/checkout')
 
 
 //initializing express
@@ -28,16 +29,22 @@ app.use(cookieParser())
 app.use('/', shopRoutes)
 
 
-//user routes 
-app.use('/users', userRoutes)
-
 
 //cart routes
 app.use('/cart', cartRoutes)
 
+
+//checkout routes
+app.use('/checkout', checkoutRoutes)
+
+
+//user routes 
+app.use('/users', userRoutes)
+
+
 //404 pages
-app.use((req, res, next)=>{
+ app.use((req, res, next)=>{
     res.render('404.ejs', {path:'404' , session: req.cookies.token ? true : false })
-})
+}) 
 
 module.exports = app;

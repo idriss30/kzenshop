@@ -45,8 +45,24 @@
             
 
         </div>
+        
         <div class="user-profile_orders">
-            <p>You do not have any order</p>
+           <% if(orders !== null){   %>
+           <% orders.forEach(order =>{ %>
+            <p>
+                you have ordered:
+            </p>
+            <p><%= order.products %></p>
+            <p> for a total of $<%= order.total %></p>
+          <% })   %>
+
+
+            <% }else{    %>
+                <p>you do not have any order</p>
+            
+        
+
+            <%  }   %>
 
         </div>
       
